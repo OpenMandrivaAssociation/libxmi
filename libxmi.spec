@@ -17,6 +17,7 @@ License: GPL
 Group: System/Libraries
 URL: http://www.gnu.org/software/libxmi/
 Source: ftp://ftp.gnu.org/pub/gnu/libxmi/%{name}-%{version}.tar.bz2
+BuildRoot: %{_tmppath}/%{name}-buildroot
 
 
 %description
