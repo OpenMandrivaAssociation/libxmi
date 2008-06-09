@@ -68,9 +68,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %name
 
+%if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
+%endif
 
+%if %mdkversion < 200900
 %postun -n %{libname} -p /sbin/ldconfig
+%endif
 
 %post -n %{libnamedev}
 %_install_info %{name}.info
