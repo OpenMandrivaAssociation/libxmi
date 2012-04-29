@@ -1,6 +1,6 @@
 %define	name	libxmi
 %define	version	1.2
-%define	release	%mkrel 4
+%define	release	%mkrel 5
 
 %define fakename xmi
 
@@ -57,7 +57,7 @@ rm -rf $RPM_BUILD_ROOT
 %setup -q 
 
 %build
-  
+autoreconf -fi
 %configure
 
 %make
@@ -65,16 +65,6 @@ rm -rf $RPM_BUILD_ROOT
 %install
 
 %makeinstall
-
-%find_lang %name
-
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
 
 %post -n %{libnamedev}
 %_install_info %{name}.info
@@ -86,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -n %{libname} -f %name.lang
+%files -n %{libname} 
 %defattr(-,root,root)
 %{_libdir}/*.so.*
 
