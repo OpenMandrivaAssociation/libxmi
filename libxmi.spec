@@ -1,6 +1,6 @@
 %define	name	libxmi
 %define	version	1.2
-%define	release	%mkrel 5
+%define	release	6
 
 %define fakename xmi
 
