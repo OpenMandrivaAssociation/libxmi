@@ -88,3 +88,31 @@ rm -rf $RPM_BUILD_ROOT
 %{_infodir}/*
 
 
+
+
+%changelog
+* Mon Apr 30 2012 Crispin Boylan <crisb@mandriva.org> 1.2-6
++ Revision: 794533
+- Remove mkrel
+
+* Sun Apr 29 2012 Crispin Boylan <crisb@mandriva.org> 1.2-5
++ Revision: 794444
+- Rebuild
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+* Mon Jul 28 2008 Thierry Vignaud <tv@mandriva.org> 1.2-3mdv2009.0
++ Revision: 250735
+- rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+* Fri Dec 21 2007 Olivier Blin <blino@mandriva.org> 1.2-1mdv2008.1
++ Revision: 136571
+- restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
