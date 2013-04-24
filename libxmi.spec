@@ -66,8 +66,6 @@ autoreconf -fi
 
 %makeinstall
 
-%post -n %{libnamedev}
-%_install_info %{name}.info
 
 %postun -n %{libnamedev}
 %_remove_install_info %{name}.info
