@@ -62,4 +62,5 @@ autoreconf -fi
 %files -n %{libnamedev}
 %{_libdir}/*.so
 %{_includedir}/*
+%{_libdir}/*.*a
 %{_infodir}/*
