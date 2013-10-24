@@ -1,24 +1,15 @@
-%define	name	libxmi
-%define	version	1.2
-%define release 	7
-
-%define fakename xmi
-
 %define major 0
-%define libname %mklibname %{fakename} %major
-%define libnamedev %mklibname %{fakename} %major -d
+%define libname %mklibname xmi %{major}
+%define libnamedev %mklibname xmi -d
 
-
-Summary: Libxmi for library rasterizing 2-D vector graphics
-Name: %{name}
-Version: %{version}
-Release: %{release}
-License: GPL
-Group: System/Libraries
-URL: http://www.gnu.org/software/libxmi/
-Source: ftp://ftp.gnu.org/pub/gnu/libxmi/%{name}-%{version}.tar.bz2
-BuildRoot: %{_tmppath}/%{name}-buildroot
-
+Summary:	Libxmi for library rasterizing 2-D vector graphics
+Name:		libxmi
+Version:	1.2
+Release:	8
+License:	GPL
+Group:		System/Libraries
+URL:		http://www.gnu.org/software/libxmi/
+Source:		ftp://ftp.gnu.org/pub/gnu/libxmi/%{name}-%{version}.tar.bz2
 
 %description
 GNU libxmi is a C/C++ function library for rasterizing 2-D vector 
@@ -29,9 +20,9 @@ as multicolored dashing patterns, can be specified. There is also
 support for filling and texturing polygons.
 
 %package -n %{libname}
-Summary: Libxmi for library rasterizing 2-D vector graphics
-Group: Development/Other
-Provides: %{name} = %{version}
+Summary:	Libxmi for library rasterizing 2-D vector graphics
+Group:		Development/Other
+Provides:	%{name} = %{version}
 
 %description -n %{libname}
 GNU libxmi is a C/C++ function library for rasterizing 2-D vector 
@@ -42,73 +33,33 @@ as multicolored dashing patterns, can be specified. There is also
 support for filling and texturing polygons.
 
 %package -n %{libnamedev}
-Summary: Libxmi for library rasterizing 2-D vector graphics
-Group: Development/Other
-Requires: %{libname} = %{version}
-Provides: %{name}-devel = %{version}
+Summary:	Libxmi for library rasterizing 2-D vector graphics
+Group:		Development/Other
+Requires:	%{libname} = %{version}
+Provides:	%{name}-devel = %{version}
+Obsoletes:	%{mklibname xmi -d 0 } < 1.2-8
 
 %description -n %{libnamedev}
-libxmi devel files
+libxmi devel files.
 
 
 %prep
-rm -rf $RPM_BUILD_ROOT
 
 %setup -q 
 
 %build
 autoreconf -fi
-%configure
+%configure2_5x
 
 %make
 
 %install
-
-%makeinstall
-
-
-
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+%makeinstall_std
 
 %files -n %{libname} 
-%defattr(-,root,root)
-%{_libdir}/*.so.*
+%{_libdir}/*.so.%{major}*
 
 %files -n %{libnamedev}
-%defattr(-,root,root)
 %{_libdir}/*.so
-%{_libdir}/*.*a
 %{_includedir}/*
 %{_infodir}/*
-
-
-
-
-%changelog
-* Mon Apr 30 2012 Crispin Boylan <crisb@mandriva.org> 1.2-6
-+ Revision: 794533
-- Remove mkrel
-
-* Sun Apr 29 2012 Crispin Boylan <crisb@mandriva.org> 1.2-5
-+ Revision: 794444
-- Rebuild
-
-  + Thierry Vignaud <tv@mandriva.org>
-    - rebuild
-
-* Mon Jul 28 2008 Thierry Vignaud <tv@mandriva.org> 1.2-3mdv2009.0
-+ Revision: 250735
-- rebuild
-
-  + Pixel <pixel@mandriva.com>
-    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
-
-* Fri Dec 21 2007 Olivier Blin <blino@mandriva.org> 1.2-1mdv2008.1
-+ Revision: 136571
-- restore BuildRoot
-
-  + Thierry Vignaud <tv@mandriva.org>
-    - kill re-definition of %%buildroot on Pixel's request
-
