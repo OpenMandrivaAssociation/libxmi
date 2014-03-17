@@ -5,11 +5,11 @@
 Summary:	Libxmi for library rasterizing 2-D vector graphics
 Name:		libxmi
 Version:	1.2
-Release:	8
+Release:	9
 License:	GPL
 Group:		System/Libraries
 URL:		http://www.gnu.org/software/libxmi/
-Source:		ftp://ftp.gnu.org/pub/gnu/libxmi/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.gnu.org/pub/gnu/libxmi/%{name}-%{version}.tar.bz2
 
 %description
 GNU libxmi is a C/C++ function library for rasterizing 2-D vector 
@@ -62,5 +62,4 @@ autoreconf -fi
 %files -n %{libnamedev}
 %{_libdir}/*.so
 %{_includedir}/*
-%{_libdir}/*.*a
 %{_infodir}/*
