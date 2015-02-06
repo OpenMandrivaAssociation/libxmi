@@ -5,7 +5,7 @@
 Summary:	Libxmi for library rasterizing 2-D vector graphics
 Name:		libxmi
 Version:	1.2
-Release:	9
+Release:	10
 License:	GPL
 Group:		System/Libraries
 URL:		http://www.gnu.org/software/libxmi/
