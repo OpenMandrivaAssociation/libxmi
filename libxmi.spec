@@ -8,7 +8,7 @@ Version:	1.2
 Release:	10
 License:	GPL
 Group:		System/Libraries
-URL:		http://www.gnu.org/software/libxmi/
+URL:		https://www.gnu.org/software/libxmi/
 Source0:	ftp://ftp.gnu.org/pub/gnu/libxmi/%{name}-%{version}.tar.bz2
 
 %description
