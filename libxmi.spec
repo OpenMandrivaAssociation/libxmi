@@ -11,6 +11,11 @@ Group:		System/Libraries
 URL:		https://www.gnu.org/software/libxmi/
 Source0:	ftp://ftp.gnu.org/pub/gnu/libxmi/%{name}-%{version}.tar.bz2
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 %description
 GNU libxmi is a C/C++ function library for rasterizing 2-D vector 
 graphics. It can draw 2-D graphical primitives, including wide 
